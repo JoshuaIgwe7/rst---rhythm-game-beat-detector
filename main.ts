@@ -5,46 +5,75 @@ namespace SpriteKind {
     export const DownProjectile = SpriteKind.create()
     export const RightProjectile = SpriteKind.create()
 }
+
+
+
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    FoundUp = false
     for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
         if (value.overlapsWith(UpBeat)) {
+            OverlapAmountUp += 1
             OverlapCheckUp(UpBeat, value)
-        } else {
-            InvisibleNumberSprite.sayText("MISS", 200, false)
-            MistList += 1
+            FoundUp = true
         }
+
+    }
+    if (!(FoundUp)) {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        FindClosestBeatUp()
+        MissList += 1
+        Combo = 0
     }
 })
 function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
-    if (Math.abs(RightProjectile.top - RightBeat.top) <= 2) {
+    if (Math.round(Math.abs(RightProjectile.top - RightBeat.top)) <= 2) {
         InvisibleNumberSprite.sayText("PERFECT", 200, false)
         PerfectList += 1
-        OverlapDegreeRight = Math.abs(RightProjectile.top - RightBeat.top)
+        info.changeScoreBy(4)
+        Combo += 1
+        OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
         sprites.destroy(RightProjectile)
         return OverlapDegreeRight
-    } else if (Math.abs(RightProjectile.top - RightBeat.top) < 4 || Math.abs(RightProjectile.top - RightBeat.top) > 3) {
+    } else if (Math.round(Math.abs(RightProjectile.top - RightBeat.top)) < 4 || Math.round(Math.abs(RightProjectile.top - RightBeat.top)) > 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
         GreatList += 1
-        OverlapDegreeRight = Math.abs(RightProjectile.top - RightBeat.top)
+        info.changeScoreBy(2)
+        Combo += 1
+        OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
         sprites.destroy(RightProjectile)
         return OverlapDegreeRight
-    } else if (Math.abs(RightProjectile.top - RightBeat.top) < 6 || Math.abs(RightProjectile.top - RightBeat.top) > 5) {
+    } else if (Math.round(Math.abs(RightProjectile.top - RightBeat.top)) < 6 || Math.round(Math.abs(RightProjectile.top - RightBeat.top)) > 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
         GoodList += 1
-        OverlapDegreeRight = Math.abs(RightProjectile.top - RightBeat.top)
+        info.changeScoreBy(1)
+        Combo += 1
+        OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
+        sprites.destroy(RightProjectile)
+        return OverlapDegreeRight
+    } else {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
+        MissList += 1
+        Combo = 0
         sprites.destroy(RightProjectile)
         return OverlapDegreeRight
     }
     return 0
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    Found = false
+    FoundLeft = false
     for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
         if (value.overlapsWith(LeftBeat)) {
             OverlapAmountLeft += 1
             OverlapCheckLeft(LeftBeat, value)
-            Found = true
+            FoundLeft = true
         }
+    }
+    if (!(FoundLeft)) {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        FindClosestBeatLeft()
+        MissList += 1
+        Combo = 0
     }
     if (!(Found)) {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -52,26 +81,73 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         MistList += 1
     }
 })
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
-        if (value.overlapsWith(RightProjectile)) {
-            OverlapCheckLeft(RightProjectile, value)
-        } else {
-            InvisibleNumberSprite.sayText("MISS", 200, false)
-            MistList += 1
+info.onCountdownEnd(function () {
+	
+})
+function FindClosestBeatUp () {
+    ArrayOfProjectileBeatDistancesUp = []
+    for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        ArrayOfProjectileBeatDistancesUp.push(spriteutils.distanceBetween(value, UpBeat))
+    }
+    for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        if (spriteutils.distanceBetween(UpBeat, value) == ArrayOfProjectileBeatDistancesUp[0]) {
+            sprites.destroy(value)
         }
     }
+}
+function FindClosestBeatDown () {
+    ArrayOfProjectileBeatDistanceDown = []
+    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        ArrayOfProjectileBeatDistanceDown.push(spriteutils.distanceBetween(value, DownBeat))
+    }
+    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        if (spriteutils.distanceBetween(DownBeat, value) == ArrayOfProjectileBeatDistanceDown[0]) {
+            sprites.destroy(value)
+        }
+    }
+}
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    FoundRight = false
+    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (value.overlapsWith(RightBeat)) {
+            OverlapAmountRight += 1
+            OverlapCheckRight(RightBeat, value)
+            FoundRight = true
+        }
+    }
+    if (!(FoundRight)) {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        FindClosestBeatRight()
+        MissList += 1
+        Combo = 0
+    }
 })
+function FindClosestBeatRight () {
+    ArrayOfProjectileBeatDistanceRight = []
+    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        ArrayOfProjectileBeatDistanceRight.push(spriteutils.distanceBetween(value, RightBeat))
+    }
+    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (spriteutils.distanceBetween(RightBeat, value) == ArrayOfProjectileBeatDistanceRight[0]) {
+            sprites.destroy(value)
+        }
+    }
+}
 function Setup () {
     InvisibleNumberSprite = sprites.create(img`
+        . 
+        `, SpriteKind.Player)
+    ComboSprite = sprites.create(img`
         . 
         `, SpriteKind.Player)
     OverlapAmountLeft = 0
     PerfectList = 0
     GreatList = 0
     GoodList = 0
-    MistList = 0
+    MissList = 0
     InvisibleNumberSprite.setPosition(80, 120)
+    ComboSprite.setPosition(25, 20)
+    ComboSprite.z = 1
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -272,82 +348,132 @@ function Setup () {
     RightBeat.setPosition(120, 90)
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    FoundDown = false
     for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
         if (value.overlapsWith(DownBeat)) {
+            OverlapAmountDown += 1
             OverlapCheckLeft(DownBeat, value)
-        } else {
-            InvisibleNumberSprite.sayText("MISS", 200, false)
-            MistList += 1
+            FoundDown = true
         }
+    }
+    if (!(FoundDown)) {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        FindClosestBeatDown()
+        MissList += 1
+        Combo = 0
     }
 })
 function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
     if (Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) <= 2) {
         InvisibleNumberSprite.sayText("PERFECT", 200, false)
         PerfectList += 1
+        info.changeScoreBy(4)
+        Combo += 1
         OverlapDegreeLeft = Math.round(Math.abs(LeftProjectile.top - LeftBeat.top))
         sprites.destroy(LeftProjectile)
         return OverlapDegreeLeft
     } else if (Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) <= 4 && Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) >= 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
         GreatList += 1
+        info.changeScoreBy(2)
+        Combo += 1
         OverlapDegreeLeft = Math.abs(LeftProjectile.top - LeftBeat.top)
         sprites.destroy(LeftProjectile)
         return OverlapDegreeLeft
     } else if (Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) <= 6 && Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) >= 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
         GoodList += 1
+        info.changeScoreBy(1)
+        Combo += 1
         OverlapDegreeLeft = Math.round(Math.abs(LeftProjectile.top - LeftBeat.top))
         sprites.destroy(LeftProjectile)
         return OverlapDegreeLeft
     } else {
         InvisibleNumberSprite.sayText("MISS", 200, false)
         OverlapDegreeLeft = Math.round(Math.abs(LeftProjectile.top - LeftBeat.top))
-        MistList += 1
+        MissList += 1
+        Combo = 0
         sprites.destroy(LeftProjectile)
         return OverlapDegreeLeft
     }
     return 0
 }
+function FindClosestBeatLeft () {
+    ArrayOfProjectileBeatDistancesLeft = []
+    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        ArrayOfProjectileBeatDistancesLeft.push(spriteutils.distanceBetween(value, LeftBeat))
+    }
+    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        if (spriteutils.distanceBetween(LeftBeat, value) == ArrayOfProjectileBeatDistancesLeft[0]) {
+            sprites.destroy(value)
+        }
+    }
+}
 function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
-    if (Math.abs(UpProjectile.top - UpBeat.top) <= 2) {
+    if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 2) {
         InvisibleNumberSprite.sayText("PERFECT", 200, false)
         PerfectList += 1
-        OverlapDegreeUp = Math.abs(UpProjectile.top - UpBeat.top)
+        info.changeScoreBy(4)
+        Combo += 1
+        OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
         sprites.destroy(UpProjectile)
         return OverlapDegreeUp
-    } else if (Math.abs(UpProjectile.top - UpBeat.top) < 4 || Math.abs(UpProjectile.top - UpBeat.top) > 3) {
+    } else if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 4 || Math.round(Math.abs(UpProjectile.top - UpBeat.top)) >= 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
         GreatList += 1
-        OverlapDegreeUp = Math.abs(UpProjectile.top - UpBeat.top)
+        info.changeScoreBy(2)
+        Combo += 1
+        OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
         sprites.destroy(UpProjectile)
         return OverlapDegreeUp
-    } else if (Math.abs(UpProjectile.top - UpBeat.top) < 6 || Math.abs(UpProjectile.top - UpBeat.top) > 5) {
+    } else if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 6 || Math.round(Math.abs(UpProjectile.top - UpBeat.top)) >= 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
         GoodList += 1
-        OverlapDegreeUp = Math.abs(UpProjectile.top - UpBeat.top)
+        info.changeScoreBy(1)
+        Combo += 1
+        OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
+        sprites.destroy(UpProjectile)
+        return OverlapDegreeUp
+    } else {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
+        MissList += 1
+        Combo = 0
         sprites.destroy(UpProjectile)
         return OverlapDegreeUp
     }
     return 0
 }
 function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
-    if (Math.abs(DownProjectile.top - DownBeat.top) <= 2) {
+    if (Math.round(Math.abs(DownProjectile.top - DownBeat.top)) <= 2) {
         InvisibleNumberSprite.sayText("PERFECT", 200, false)
         PerfectList += 1
-        OverlapDegreeDown = Math.abs(DownProjectile.top - DownBeat.top)
+        info.changeScoreBy(4)
+        Combo += 1
+        OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
         sprites.destroy(DownProjectile)
         return OverlapDegreeDown
-    } else if (Math.abs(DownProjectile.top - DownBeat.top) < 4 || Math.abs(DownProjectile.top - DownBeat.top) > 3) {
+    } else if (Math.round(Math.abs(DownProjectile.top - DownBeat.top)) < 4 || Math.round(Math.abs(DownProjectile.top - DownBeat.top)) > 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
         GreatList += 1
-        OverlapDegreeDown = Math.abs(DownProjectile.top - DownBeat.top)
+        info.changeScoreBy(2)
+        Combo += 1
+        OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
         sprites.destroy(DownProjectile)
         return OverlapDegreeDown
-    } else if (Math.abs(DownProjectile.top - DownBeat.top) < 6 || Math.abs(DownProjectile.top - DownBeat.top) > 5) {
+    } else if (Math.round(Math.abs(DownProjectile.top - DownBeat.top)) < 6 || Math.round(Math.abs(DownProjectile.top - DownBeat.top)) > 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
         GoodList += 1
-        OverlapDegreeDown = Math.abs(UpProjectile.top - UpBeat.top)
+        info.changeScoreBy(1)
+        Combo += 1
+        OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
+        sprites.destroy(DownProjectile)
+        return OverlapDegreeDown
+    } else {
+        InvisibleNumberSprite.sayText("MISS", 200, false)
+        OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
+        MissList += 1
+        Combo = 0
         sprites.destroy(DownProjectile)
         return OverlapDegreeDown
     }
@@ -359,12 +485,24 @@ let UpProjectile: Sprite = null
 let Chance = 0
 let OverlapDegreeDown = 0
 let OverlapDegreeUp = 0
+let ArrayOfProjectileBeatDistancesLeft: number[] = []
 let LeftProjectile: Sprite = null
 let OverlapDegreeLeft = 0
-let RightBeat: Sprite = null
-let DownBeat: Sprite = null
-let UpBeat: Sprite = null
+let OverlapAmountDown = 0
+let FoundDown = false
 let LeftBeat: Sprite = null
+let ComboSprite: Sprite = null
+let RightBeat: Sprite = null
+let ArrayOfProjectileBeatDistanceRight: number[] = []
+let OverlapAmountRight = 0
+let FoundRight = false
+let DownBeat: Sprite = null
+let ArrayOfProjectileBeatDistanceDown: number[] = []
+let UpBeat: Sprite = null
+let ArrayOfProjectileBeatDistancesUp: number[] = []
+let FoundLeft = false
+let Combo = 0
+let MissList = 0
 let OverlapAmountLeft = 0
 let Found = false
 let GoodList = 0
@@ -373,11 +511,17 @@ let OverlapDegreeRight = 0
 let PerfectList = 0
 let MistList = 0
 let InvisibleNumberSprite: Sprite = null
+let OverlapAmountUp = 0
+let FoundUp = false
 Setup()
+info.startCountdown(30)
 forever(function () {
     Chance = randint(1, 4)
 })
-game.onUpdateInterval(500, function () {
+forever(function () {
+    ComboSprite.sayText("Combo:" + Combo)
+})
+game.onUpdateInterval(200, function () {
     if (Chance == 1) {
         LeftProjectile = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -401,7 +545,7 @@ game.onUpdateInterval(500, function () {
         LeftProjectile.setKind(SpriteKind.LeftProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(200, function () {
     if (Chance == 2) {
         UpProjectile = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -425,7 +569,7 @@ game.onUpdateInterval(500, function () {
         UpProjectile.setKind(SpriteKind.UpProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(200, function () {
     if (Chance == 3) {
         DownProjectile = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -449,7 +593,7 @@ game.onUpdateInterval(500, function () {
         DownProjectile.setKind(SpriteKind.DownProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(200, function () {
     if (Chance == 4) {
         RightProjectile = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
