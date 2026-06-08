@@ -5,9 +5,6 @@ namespace SpriteKind {
     export const DownProjectile = SpriteKind.create()
     export const RightProjectile = SpriteKind.create()
 }
-
-
-
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     FoundUp = false
     for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
@@ -16,7 +13,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             OverlapCheckUp(UpBeat, value)
             FoundUp = true
         }
-
     }
     if (!(FoundUp)) {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -62,10 +58,10 @@ function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     FoundLeft = false
-    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
-        if (value.overlapsWith(LeftBeat)) {
+    for (let value2 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        if (value2.overlapsWith(LeftBeat)) {
             OverlapAmountLeft += 1
-            OverlapCheckLeft(LeftBeat, value)
+            OverlapCheckLeft(LeftBeat, value2)
             FoundLeft = true
         }
     }
@@ -75,43 +71,38 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         MissList += 1
         Combo = 0
     }
-    if (!(Found)) {
-        InvisibleNumberSprite.sayText("MISS", 200, false)
-        sprites.destroy(LeftProjectile)
-        MistList += 1
-    }
 })
 info.onCountdownEnd(function () {
 	
 })
 function FindClosestBeatUp () {
     ArrayOfProjectileBeatDistancesUp = []
-    for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
-        ArrayOfProjectileBeatDistancesUp.push(spriteutils.distanceBetween(value, UpBeat))
+    for (let value3 of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        ArrayOfProjectileBeatDistancesUp.push(spriteutils.distanceBetween(value3, UpBeat))
     }
-    for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
-        if (spriteutils.distanceBetween(UpBeat, value) == ArrayOfProjectileBeatDistancesUp[0]) {
-            sprites.destroy(value)
+    for (let value3 of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        if (spriteutils.distanceBetween(UpBeat, value3) == ArrayOfProjectileBeatDistancesUp[0]) {
+            sprites.destroy(value3)
         }
     }
 }
 function FindClosestBeatDown () {
     ArrayOfProjectileBeatDistanceDown = []
-    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
-        ArrayOfProjectileBeatDistanceDown.push(spriteutils.distanceBetween(value, DownBeat))
+    for (let value5 of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        ArrayOfProjectileBeatDistanceDown.push(spriteutils.distanceBetween(value5, DownBeat))
     }
-    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
-        if (spriteutils.distanceBetween(DownBeat, value) == ArrayOfProjectileBeatDistanceDown[0]) {
-            sprites.destroy(value)
+    for (let value5 of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        if (spriteutils.distanceBetween(DownBeat, value5) == ArrayOfProjectileBeatDistanceDown[0]) {
+            sprites.destroy(value5)
         }
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     FoundRight = false
-    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
-        if (value.overlapsWith(RightBeat)) {
+    for (let value7 of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (value7.overlapsWith(RightBeat)) {
             OverlapAmountRight += 1
-            OverlapCheckRight(RightBeat, value)
+            OverlapCheckRight(RightBeat, value7)
             FoundRight = true
         }
     }
@@ -124,12 +115,12 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function FindClosestBeatRight () {
     ArrayOfProjectileBeatDistanceRight = []
-    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
-        ArrayOfProjectileBeatDistanceRight.push(spriteutils.distanceBetween(value, RightBeat))
+    for (let value8 of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        ArrayOfProjectileBeatDistanceRight.push(spriteutils.distanceBetween(value8, RightBeat))
     }
-    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
-        if (spriteutils.distanceBetween(RightBeat, value) == ArrayOfProjectileBeatDistanceRight[0]) {
-            sprites.destroy(value)
+    for (let value8 of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (spriteutils.distanceBetween(RightBeat, value8) == ArrayOfProjectileBeatDistanceRight[0]) {
+            sprites.destroy(value8)
         }
     }
 }
@@ -349,10 +340,10 @@ function Setup () {
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     FoundDown = false
-    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
-        if (value.overlapsWith(DownBeat)) {
+    for (let value10 of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        if (value10.overlapsWith(DownBeat)) {
             OverlapAmountDown += 1
-            OverlapCheckLeft(DownBeat, value)
+            OverlapCheckLeft(DownBeat, value10)
             FoundDown = true
         }
     }
@@ -400,12 +391,12 @@ function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
 }
 function FindClosestBeatLeft () {
     ArrayOfProjectileBeatDistancesLeft = []
-    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
-        ArrayOfProjectileBeatDistancesLeft.push(spriteutils.distanceBetween(value, LeftBeat))
+    for (let value11 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        ArrayOfProjectileBeatDistancesLeft.push(spriteutils.distanceBetween(value11, LeftBeat))
     }
-    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
-        if (spriteutils.distanceBetween(LeftBeat, value) == ArrayOfProjectileBeatDistancesLeft[0]) {
-            sprites.destroy(value)
+    for (let value11 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        if (spriteutils.distanceBetween(LeftBeat, value11) == ArrayOfProjectileBeatDistancesLeft[0]) {
+            sprites.destroy(value11)
         }
     }
 }
@@ -479,51 +470,49 @@ function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
     }
     return 0
 }
-let RightProjectile: Sprite = null
-let DownProjectile: Sprite = null
-let UpProjectile: Sprite = null
+let RightProjectile2: Sprite = null
+let DownProjectile2: Sprite = null
+let UpProjectile2: Sprite = null
+let LeftProjectile2: Sprite = null
 let Chance = 0
 let OverlapDegreeDown = 0
 let OverlapDegreeUp = 0
 let ArrayOfProjectileBeatDistancesLeft: number[] = []
-let LeftProjectile: Sprite = null
 let OverlapDegreeLeft = 0
 let OverlapAmountDown = 0
 let FoundDown = false
-let LeftBeat: Sprite = null
 let ComboSprite: Sprite = null
-let RightBeat: Sprite = null
 let ArrayOfProjectileBeatDistanceRight: number[] = []
 let OverlapAmountRight = 0
+let RightBeat: Sprite = null
 let FoundRight = false
 let DownBeat: Sprite = null
 let ArrayOfProjectileBeatDistanceDown: number[] = []
-let UpBeat: Sprite = null
 let ArrayOfProjectileBeatDistancesUp: number[] = []
-let FoundLeft = false
-let Combo = 0
-let MissList = 0
 let OverlapAmountLeft = 0
-let Found = false
+let LeftBeat: Sprite = null
+let FoundLeft = false
 let GoodList = 0
 let GreatList = 0
 let OverlapDegreeRight = 0
 let PerfectList = 0
-let MistList = 0
+let Combo = 0
+let MissList = 0
 let InvisibleNumberSprite: Sprite = null
 let OverlapAmountUp = 0
+let UpBeat: Sprite = null
 let FoundUp = false
 Setup()
 info.startCountdown(30)
 forever(function () {
-    Chance = randint(1, 4)
-})
-forever(function () {
     ComboSprite.sayText("Combo:" + Combo)
 })
-game.onUpdateInterval(200, function () {
+forever(function () {
+    Chance = randint(1, 4)
+})
+game.onUpdateInterval(500, function () {
     if (Chance == 1) {
-        LeftProjectile = sprites.createProjectileFromSide(img`
+        LeftProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
             . . f f f f f f f f f f f f . . 
             . f b b b b b b b b b b b b f . 
@@ -541,13 +530,13 @@ game.onUpdateInterval(200, function () {
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
             `, 0, 50)
-        LeftProjectile.setPosition(30, 0)
-        LeftProjectile.setKind(SpriteKind.LeftProjectile)
+        LeftProjectile2.setPosition(30, 0)
+        LeftProjectile2.setKind(SpriteKind.LeftProjectile)
     }
 })
-game.onUpdateInterval(200, function () {
+game.onUpdateInterval(500, function () {
     if (Chance == 2) {
-        UpProjectile = sprites.createProjectileFromSide(img`
+        UpProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
             . . f f f f f f f f f f f f . . 
             . f b b b b b b b b b b b b f . 
@@ -565,13 +554,13 @@ game.onUpdateInterval(200, function () {
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
             `, 0, 50)
-        UpProjectile.setPosition(60, 0)
-        UpProjectile.setKind(SpriteKind.UpProjectile)
+        UpProjectile2.setPosition(60, 0)
+        UpProjectile2.setKind(SpriteKind.UpProjectile)
     }
 })
-game.onUpdateInterval(200, function () {
+game.onUpdateInterval(500, function () {
     if (Chance == 3) {
-        DownProjectile = sprites.createProjectileFromSide(img`
+        DownProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
             . . f f f f f f f f f f f f . . 
             . f b b b b b b b b b b b b f . 
@@ -589,13 +578,13 @@ game.onUpdateInterval(200, function () {
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
             `, 0, 50)
-        DownProjectile.setPosition(90, 0)
-        DownProjectile.setKind(SpriteKind.DownProjectile)
+        DownProjectile2.setPosition(90, 0)
+        DownProjectile2.setKind(SpriteKind.DownProjectile)
     }
 })
-game.onUpdateInterval(200, function () {
+game.onUpdateInterval(500, function () {
     if (Chance == 4) {
-        RightProjectile = sprites.createProjectileFromSide(img`
+        RightProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
             . . f f f f f f f f f f f f . . 
             . f b b b b b b b b b b b b f . 
@@ -613,7 +602,7 @@ game.onUpdateInterval(200, function () {
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
             `, 0, 50)
-        RightProjectile.setPosition(120, 0)
-        RightProjectile.setKind(SpriteKind.RightProjectile)
+        RightProjectile2.setPosition(120, 0)
+        RightProjectile2.setKind(SpriteKind.RightProjectile)
     }
 })
