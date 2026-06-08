@@ -1,9 +1,10 @@
 {
-    "name": "RST - Rhythm Game: Beat Detector",
+    "name": "RST - Rhythm Game: Beat Detector - Copy",
     "description": "",
     "dependencies": {
         "device": "*",
-        "Rhythm Game Test ": "pub:58880-75171-97004-96313"
+        "Rhythm Game Test ": "pub:58880-75171-97004-96313",
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.6.0"
     },
     "files": [
         "main.blocks",
@@ -21,5 +22,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
