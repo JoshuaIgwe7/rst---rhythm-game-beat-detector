@@ -29,6 +29,43 @@ function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
         Combo += 1
         OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
         sprites.destroy(RightProjectile)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 f 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 f f 5 5 5 f . 
+            . f 5 5 f f f f f f f f 5 5 f . 
+            . f 5 5 f f f f f f f f 5 5 f . 
+            . f 5 5 5 5 5 5 5 f f 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 f 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeRight
     } else if (Math.round(Math.abs(RightProjectile.top - RightBeat.top)) < 4 || Math.round(Math.abs(RightProjectile.top - RightBeat.top)) > 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
@@ -37,6 +74,43 @@ function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
         Combo += 1
         OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
         sprites.destroy(RightProjectile)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 f 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 f f 9 9 9 f . 
+            . f 9 9 f f f f f f f f 9 9 f . 
+            . f 9 9 f f f f f f f f 9 9 f . 
+            . f 9 9 9 9 9 9 9 f f 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 f 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeRight
     } else if (Math.round(Math.abs(RightProjectile.top - RightBeat.top)) < 6 || Math.round(Math.abs(RightProjectile.top - RightBeat.top)) > 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
@@ -45,6 +119,43 @@ function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
         Combo += 1
         OverlapDegreeRight = Math.round(Math.abs(RightProjectile.top - RightBeat.top))
         sprites.destroy(RightProjectile)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a f a a a a f . 
+            . f a a a a a a a f f a a a f . 
+            . f a a f f f f f f f f a a f . 
+            . f a a f f f f f f f f a a f . 
+            . f a a a a a a a f f a a a f . 
+            . f a a a a a a a f a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeRight
     } else {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -52,6 +163,43 @@ function OverlapCheckRight (RightBeat: Sprite, RightProjectile: Sprite) {
         MissList += 1
         Combo = 0
         sprites.destroy(RightProjectile)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 f 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 f f 2 2 2 f . 
+            . f 2 2 f f f f f f f f 2 2 f . 
+            . f 2 2 f f f f f f f f 2 2 f . 
+            . f 2 2 2 2 2 2 2 f f 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 f 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        RightBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b b b b b f f b b b f . 
+            . f b b b b b b b f b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeRight
     }
     return 0
@@ -73,16 +221,23 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 info.onCountdownEnd(function () {
-	
+    sprites.destroyAllSpritesOfKind(SpriteKind.LeftProjectile)
+    sprites.destroyAllSpritesOfKind(SpriteKind.UpProjectile)
+    sprites.destroyAllSpritesOfKind(SpriteKind.DownProjectile)
+    sprites.destroyAllSpritesOfKind(SpriteKind.RightProjectile)
+    game.splash("# OF PERFECTS:" + PerfectList, "# OF GREATS:" + GreatList)
+    game.splash("# OF GOODS:" + GoodList, "# OF MISSES:" + MissList)
+    game.setGameOverMessage(true, "HIGHEST COMBO:" + HighestCombo)
+    game.gameOver(true)
 })
 function FindClosestBeatUp () {
     ArrayOfProjectileBeatDistancesUp = []
     for (let value3 of sprites.allOfKind(SpriteKind.UpProjectile)) {
         ArrayOfProjectileBeatDistancesUp.push(spriteutils.distanceBetween(value3, UpBeat))
     }
-    for (let value3 of sprites.allOfKind(SpriteKind.UpProjectile)) {
-        if (spriteutils.distanceBetween(UpBeat, value3) == ArrayOfProjectileBeatDistancesUp[0]) {
-            sprites.destroy(value3)
+    for (let value32 of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        if (spriteutils.distanceBetween(UpBeat, value32) == ArrayOfProjectileBeatDistancesUp[0]) {
+            sprites.destroy(value32)
         }
     }
 }
@@ -91,9 +246,9 @@ function FindClosestBeatDown () {
     for (let value5 of sprites.allOfKind(SpriteKind.DownProjectile)) {
         ArrayOfProjectileBeatDistanceDown.push(spriteutils.distanceBetween(value5, DownBeat))
     }
-    for (let value5 of sprites.allOfKind(SpriteKind.DownProjectile)) {
-        if (spriteutils.distanceBetween(DownBeat, value5) == ArrayOfProjectileBeatDistanceDown[0]) {
-            sprites.destroy(value5)
+    for (let value52 of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        if (spriteutils.distanceBetween(DownBeat, value52) == ArrayOfProjectileBeatDistanceDown[0]) {
+            sprites.destroy(value52)
         }
     }
 }
@@ -118,9 +273,9 @@ function FindClosestBeatRight () {
     for (let value8 of sprites.allOfKind(SpriteKind.RightProjectile)) {
         ArrayOfProjectileBeatDistanceRight.push(spriteutils.distanceBetween(value8, RightBeat))
     }
-    for (let value8 of sprites.allOfKind(SpriteKind.RightProjectile)) {
-        if (spriteutils.distanceBetween(RightBeat, value8) == ArrayOfProjectileBeatDistanceRight[0]) {
-            sprites.destroy(value8)
+    for (let value82 of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (spriteutils.distanceBetween(RightBeat, value82) == ArrayOfProjectileBeatDistanceRight[0]) {
+            sprites.destroy(value82)
         }
     }
 }
@@ -343,7 +498,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let value10 of sprites.allOfKind(SpriteKind.DownProjectile)) {
         if (value10.overlapsWith(DownBeat)) {
             OverlapAmountDown += 1
-            OverlapCheckLeft(DownBeat, value10)
+            OverlapCheckDown(DownBeat, value10)
             FoundDown = true
         }
     }
@@ -362,6 +517,43 @@ function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
         Combo += 1
         OverlapDegreeLeft = Math.round(Math.abs(LeftProjectile.top - LeftBeat.top))
         sprites.destroy(LeftProjectile)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 f 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 f f 5 5 5 5 5 5 5 f . 
+            . f 5 5 f f f f f f f f 5 5 f . 
+            . f 5 5 f f f f f f f f 5 5 f . 
+            . f 5 5 5 f f 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 f 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeLeft
     } else if (Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) <= 4 && Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) >= 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
@@ -370,6 +562,43 @@ function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
         Combo += 1
         OverlapDegreeLeft = Math.abs(LeftProjectile.top - LeftBeat.top)
         sprites.destroy(LeftProjectile)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 f 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 f f 9 9 9 9 9 9 9 f . 
+            . f 9 9 f f f f f f f f 9 9 f . 
+            . f 9 9 f f f f f f f f 9 9 f . 
+            . f 9 9 9 f f 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 f 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeLeft
     } else if (Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) <= 6 && Math.round(Math.abs(LeftProjectile.top - LeftBeat.top)) >= 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
@@ -378,6 +607,43 @@ function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
         Combo += 1
         OverlapDegreeLeft = Math.round(Math.abs(LeftProjectile.top - LeftBeat.top))
         sprites.destroy(LeftProjectile)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a f a a a a a a a f . 
+            . f a a a f f a a a a a a a f . 
+            . f a a f f f f f f f f a a f . 
+            . f a a f f f f f f f f a a f . 
+            . f a a a f f a a a a a a a f . 
+            . f a a a a f a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeLeft
     } else {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -385,6 +651,43 @@ function OverlapCheckLeft (LeftBeat: Sprite, LeftProjectile: Sprite) {
         MissList += 1
         Combo = 0
         sprites.destroy(LeftProjectile)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 f 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 f f 2 2 2 2 2 2 2 f . 
+            . f 2 2 f f f f f f f f 2 2 f . 
+            . f 2 2 f f f f f f f f 2 2 f . 
+            . f 2 2 2 f f 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 f 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        LeftBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b f f f f f f f f b b f . 
+            . f b b b f f b b b b b b b f . 
+            . f b b b b f b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeLeft
     }
     return 0
@@ -394,12 +697,17 @@ function FindClosestBeatLeft () {
     for (let value11 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
         ArrayOfProjectileBeatDistancesLeft.push(spriteutils.distanceBetween(value11, LeftBeat))
     }
-    for (let value11 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
-        if (spriteutils.distanceBetween(LeftBeat, value11) == ArrayOfProjectileBeatDistancesLeft[0]) {
-            sprites.destroy(value11)
+    for (let value112 of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        if (spriteutils.distanceBetween(LeftBeat, value112) == ArrayOfProjectileBeatDistancesLeft[0]) {
+            sprites.destroy(value112)
         }
     }
 }
+info.onScore(20, function () {
+    music.stopAllSounds()
+    music.changeTempoBy(10)
+    music.play(music.stringPlayable("D F A E F E G D ", music.tempo()), music.PlaybackMode.LoopingInBackground)
+})
 function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
     if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 2) {
         InvisibleNumberSprite.sayText("PERFECT", 200, false)
@@ -408,6 +716,43 @@ function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
         Combo += 1
         OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
         sprites.destroy(UpProjectile)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 f f f f 5 5 5 5 f . 
+            . f 5 5 5 f f f f f f 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeUp
     } else if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 4 || Math.round(Math.abs(UpProjectile.top - UpBeat.top)) >= 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
@@ -416,6 +761,43 @@ function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
         Combo += 1
         OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
         sprites.destroy(UpProjectile)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 f f f f 9 9 9 9 f . 
+            . f 9 9 9 f f f f f f 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeUp
     } else if (Math.round(Math.abs(UpProjectile.top - UpBeat.top)) <= 6 || Math.round(Math.abs(UpProjectile.top - UpBeat.top)) >= 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
@@ -424,6 +806,43 @@ function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
         Combo += 1
         OverlapDegreeUp = Math.round(Math.abs(UpProjectile.top - UpBeat.top))
         sprites.destroy(UpProjectile)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a f f f f a a a a f . 
+            . f a a a f f f f f f a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeUp
     } else {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -431,6 +850,43 @@ function OverlapCheckUp (UpBeat: Sprite, UpProjectile: Sprite) {
         MissList += 1
         Combo = 0
         sprites.destroy(UpProjectile)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 f f f f 2 2 2 2 f . 
+            . f 2 2 2 f f f f f f 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        UpBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeUp
     }
     return 0
@@ -443,6 +899,43 @@ function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
         Combo += 1
         OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
         sprites.destroy(DownProjectile)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 f f f f f f 5 5 5 f . 
+            . f 5 5 5 5 f f f f 5 5 5 5 f . 
+            . f 5 5 5 5 5 f f 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . f 5 5 5 5 5 5 5 5 5 5 5 5 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeDown
     } else if (Math.round(Math.abs(DownProjectile.top - DownBeat.top)) < 4 || Math.round(Math.abs(DownProjectile.top - DownBeat.top)) > 3) {
         InvisibleNumberSprite.sayText("GREAT", 200, false)
@@ -451,6 +944,43 @@ function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
         Combo += 1
         OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
         sprites.destroy(DownProjectile)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 f f f f f f 9 9 9 f . 
+            . f 9 9 9 9 f f f f 9 9 9 9 f . 
+            . f 9 9 9 9 9 f f 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . f 9 9 9 9 9 9 9 9 9 9 9 9 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeDown
     } else if (Math.round(Math.abs(DownProjectile.top - DownBeat.top)) < 6 || Math.round(Math.abs(DownProjectile.top - DownBeat.top)) > 5) {
         InvisibleNumberSprite.sayText("GOOD", 200, false)
@@ -459,6 +989,43 @@ function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
         Combo += 1
         OverlapDegreeDown = Math.round(Math.abs(DownProjectile.top - DownBeat.top))
         sprites.destroy(DownProjectile)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a f f f f f f a a a f . 
+            . f a a a a f f f f a a a a f . 
+            . f a a a a a f f a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . f a a a a a a a a a a a a f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeDown
     } else {
         InvisibleNumberSprite.sayText("MISS", 200, false)
@@ -466,6 +1033,43 @@ function OverlapCheckDown (DownBeat: Sprite, DownProjectile: Sprite) {
         MissList += 1
         Combo = 0
         sprites.destroy(DownProjectile)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 f f f f f f 2 2 2 f . 
+            . f 2 2 2 2 f f f f 2 2 2 2 f . 
+            . f 2 2 2 2 2 f f 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . f 2 2 2 2 2 2 2 2 2 2 2 2 f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+        pause(100)
+        DownBeat.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . f f f f f f f f f f f f . . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b f f f f f f b b b f . 
+            . f b b b b f f f f b b b b f . 
+            . f b b b b b f f b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . f b b b b b b b b b b b b f . 
+            . . f f f f f f f f f f f f . . 
+            . . . . . . . . . . . . . . . . 
+            `)
         return OverlapDegreeDown
     }
     return 0
@@ -489,6 +1093,7 @@ let FoundRight = false
 let DownBeat: Sprite = null
 let ArrayOfProjectileBeatDistanceDown: number[] = []
 let ArrayOfProjectileBeatDistancesUp: number[] = []
+let HighestCombo = 0
 let OverlapAmountLeft = 0
 let LeftBeat: Sprite = null
 let FoundLeft = false
@@ -504,11 +1109,24 @@ let UpBeat: Sprite = null
 let FoundUp = false
 Setup()
 info.startCountdown(30)
+music.play(music.stringPlayable("D F A E F E G D ", 100), music.PlaybackMode.LoopingInBackground)
+forever(function () {
+	
+})
 forever(function () {
     ComboSprite.sayText("Combo:" + Combo)
+    if (Combo > HighestCombo) {
+        HighestCombo = Combo
+    }
 })
 forever(function () {
     Chance = randint(1, 4)
+})
+forever(function () {
+	
+})
+forever(function () {
+	
 })
 game.onUpdateInterval(500, function () {
     if (Chance == 1) {
@@ -529,7 +1147,7 @@ game.onUpdateInterval(500, function () {
             . f b b b b b b b b b b b b f . 
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
-            `, 0, 50)
+            `, 0, 100)
         LeftProjectile2.setPosition(30, 0)
         LeftProjectile2.setKind(SpriteKind.LeftProjectile)
     }
@@ -553,7 +1171,7 @@ game.onUpdateInterval(500, function () {
             . f b b b b b b b b b b b b f . 
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
-            `, 0, 50)
+            `, 0, 100)
         UpProjectile2.setPosition(60, 0)
         UpProjectile2.setKind(SpriteKind.UpProjectile)
     }
@@ -577,7 +1195,7 @@ game.onUpdateInterval(500, function () {
             . f b b b b b b b b b b b b f . 
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
-            `, 0, 50)
+            `, 0, 100)
         DownProjectile2.setPosition(90, 0)
         DownProjectile2.setKind(SpriteKind.DownProjectile)
     }
@@ -601,7 +1219,7 @@ game.onUpdateInterval(500, function () {
             . f b b b b b b b b b b b b f . 
             . . f f f f f f f f f f f f . . 
             . . . . . . . . . . . . . . . . 
-            `, 0, 50)
+            `, 0, 100)
         RightProjectile2.setPosition(120, 0)
         RightProjectile2.setKind(SpriteKind.RightProjectile)
     }
