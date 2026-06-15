@@ -739,7 +739,7 @@ function MusicChoice2 () {
                                 pause(500)
                                 music.play(MusicChoice[5], music.PlaybackMode.InBackground)
                             } else {
-                                WitchesDream = game.ask("Witches Dream")
+                                WitchesDream = game.ask("WITCHES DREAM")
                                 if (WitchesDream) {
                                     game.splash("GET READY")
                                     pause(500)
@@ -1200,7 +1200,37 @@ forever(function () {
 forever(function () {
     Chance = randint(1, 4)
 })
-game.onUpdateInterval(500, function () {
+forever(function () {
+    for (let value of sprites.allOfKind(SpriteKind.LeftProjectile)) {
+        if (value.y >= 110) {
+            InvisibleNumberSprite.sayText("MISS", 200, false)
+            MissList += 1
+            Combo = 0
+        }
+    }
+    for (let value of sprites.allOfKind(SpriteKind.UpProjectile)) {
+        if (value.y >= 110) {
+            InvisibleNumberSprite.sayText("MISS", 200, false)
+            MissList += 1
+            Combo = 0
+        }
+    }
+    for (let value of sprites.allOfKind(SpriteKind.DownProjectile)) {
+        if (value.y >= 110) {
+            InvisibleNumberSprite.sayText("MISS", 200, false)
+            MissList += 1
+            Combo = 0
+        }
+    }
+    for (let value of sprites.allOfKind(SpriteKind.RightProjectile)) {
+        if (value.y >= 110) {
+            InvisibleNumberSprite.sayText("MISS", 200, false)
+            MissList += 1
+            Combo = 0
+        }
+    }
+})
+game.onUpdateInterval(300, function () {
     if (Chance == 1) {
         LeftProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -1224,7 +1254,7 @@ game.onUpdateInterval(500, function () {
         LeftProjectile2.setKind(SpriteKind.LeftProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(300, function () {
     if (Chance == 2) {
         UpProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -1248,7 +1278,7 @@ game.onUpdateInterval(500, function () {
         UpProjectile2.setKind(SpriteKind.UpProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(300, function () {
     if (Chance == 3) {
         DownProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
@@ -1272,7 +1302,7 @@ game.onUpdateInterval(500, function () {
         DownProjectile2.setKind(SpriteKind.DownProjectile)
     }
 })
-game.onUpdateInterval(500, function () {
+game.onUpdateInterval(300, function () {
     if (Chance == 4) {
         RightProjectile2 = sprites.createProjectileFromSide(img`
             . . . . . . . . . . . . . . . . 
