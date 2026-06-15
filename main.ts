@@ -228,7 +228,12 @@ info.onCountdownEnd(function () {
     game.splash("# OF PERFECTS:" + PerfectList, "# OF GREATS:" + GreatList)
     game.splash("# OF GOODS:" + GoodList, "# OF MISSES:" + MissList)
     game.setGameOverMessage(true, "HIGHEST COMBO:" + HighestCombo)
-    game.gameOver(true)
+    game.setGameOverMessage(false, "HIGHEST COMBO:" + HighestCombo)
+    if (MissList > PerfectList) {
+        game.gameOver(false)
+    } else {
+        game.gameOver(true)
+    }
 })
 function FindClosestBeatUp () {
     ArrayOfProjectileBeatDistancesUp = []
